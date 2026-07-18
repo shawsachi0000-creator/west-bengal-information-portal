@@ -281,3 +281,9 @@ document.getElementById("condition").innerHTML="Partly Cloudy";
 }
 
 getWeather();
+const menu=document.querySelector(".menu-toggle");
+const nav=document.querySelector(".navbar");
+
+menu.onclick=function(){
+    nav.classList.toggle("active");
+};
