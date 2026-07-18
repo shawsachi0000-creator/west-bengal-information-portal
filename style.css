@@ -573,3 +573,22 @@ transition:.3s;
 .weather-card button:hover{
 background:#062d6d;
 }
+/* DISTRICTS */
+
+.districts{
+padding:80px 8%;
+background:#ffffff;
+}
+
+.districts .card{
+cursor:pointer;
+font-weight:bold;
+font-size:18px;
+transition:.3s;
+}
+
+.districts .card:hover{
+background:#0b3d91;
+color:white;
+transform:translateY(-8px);
+}
