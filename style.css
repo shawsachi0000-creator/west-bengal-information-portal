@@ -114,8 +114,8 @@ color:#FFD700;
 /* HERO */
 
 .hero{
-background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-url("images/banner.jpg") center/cover;
+background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("1280px-Victoria_Memorial_situated_in_Kolkata.jpg") center/cover;
 min-height:85vh;
 display:flex;
 align-items:center;
