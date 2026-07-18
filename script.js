@@ -268,3 +268,16 @@ slides[slideIndex - 1].style.display = "block";
 setTimeout(showSlides, 3000);
 
 }
+// WEATHER DEMO
+
+function getWeather(){
+
+document.getElementById("city").innerHTML="Kolkata";
+
+document.getElementById("temp").innerHTML="31°C";
+
+document.getElementById("condition").innerHTML="Partly Cloudy";
+
+}
+
+getWeather();
