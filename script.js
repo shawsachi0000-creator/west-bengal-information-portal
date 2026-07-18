@@ -287,3 +287,20 @@ const nav=document.querySelector(".navbar");
 menu.onclick=function(){
     nav.classList.toggle("active");
 };
+// Force show all cards
+window.addEventListener("load", function () {
+
+    document.querySelectorAll(".card").forEach(function(card){
+        card.style.opacity = "1";
+        card.style.visibility = "visible";
+        card.style.display = "block";
+        card.style.transform = "none";
+    });
+
+    document.querySelectorAll(".card h3, .card p, .card a").forEach(function(el){
+        el.style.opacity = "1";
+        el.style.visibility = "visible";
+        el.style.color = "#000";
+    });
+
+});
