@@ -1,0 +1,58 @@
+# West Bengal Information Portal
+
+A modern, responsive and user-friendly information portal for the Government of West Bengal.
+
+## Features
+
+- Government Departments
+- Government Jobs
+- Government Schemes
+- Education
+- Latest News
+- Weather
+- All 23 Districts
+- Search
+- Dark Mode
+- Emergency Numbers
+- Mobile Responsive
+- SEO Ready
+- AdSense Ready
+
+## Project Structure
+
+west-bengal-information-portal/
+│
+├── index.html
+├── style.css
+├── script.js
+├── robots.txt
+├── sitemap.xml
+├── README.md
+│
+├── pages/
+│   ├── government.html
+│   ├── jobs.html
+│   ├── schemes.html
+│   ├── education.html
+│   ├── districts.html
+│   ├── weather.html
+│   ├── news.html
+│   └── contact.html
+│
+├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── images/
+│   └── icons/
+
+## Technologies
+
+- HTML5
+- CSS3
+- JavaScript
+- Font Awesome
+- Google Fonts
+
+## Developed With ❤️
+
+West Bengal Information Portal
