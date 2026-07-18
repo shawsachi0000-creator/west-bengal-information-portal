@@ -675,4 +675,28 @@ nav ul li a{
 }
 
 }
+/* FORCE DESKTOP LAYOUT */
 
+html{
+    min-width:1200px;
+}
+
+body{
+    min-width:1200px;
+    overflow-x:auto;
+}
+
+header,
+section,
+footer{
+    min-width:1200px;
+}
+
+@media (max-width:1200px){
+
+    html,
+    body{
+        width:1200px;
+    }
+
+}
