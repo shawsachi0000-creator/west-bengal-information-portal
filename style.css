@@ -215,6 +215,20 @@ margin-top:40px;
 }
 
 .card{
+.card{
+    color:#000;
+}
+
+.card h3,
+.card p,
+.card a{
+    color:#000;
+}
+
+.card a{
+    background:#0b3d91;
+    color:#fff;
+}
 background:#fff;
 padding:30px 20px;
 border-radius:15px;
