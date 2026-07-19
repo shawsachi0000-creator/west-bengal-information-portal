@@ -675,3 +675,46 @@ nav ul li a{
 }
 
 }
+/* Government */
+.gov-btn{
+    background:#FF9933;
+    color:white;
+}
+
+/* Jobs */
+.jobs-btn{
+    background:#0d6efd;
+    color:white;
+}
+
+/* Education */
+.edu-btn{
+    background:#198754;
+    color:white;
+}
+
+/* Health */
+.health-btn{
+    background:#dc3545;
+    color:white;
+}
+
+/* Tourism */
+.tourism-btn{
+    background:#6f42c1;
+    color:white;
+}
+
+/* Schemes */
+.scheme-btn{
+    background:#20c997;
+    color:white;
+}
+
+.card a{
+    display:block;
+    padding:12px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
