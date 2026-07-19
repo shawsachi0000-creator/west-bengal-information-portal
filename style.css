@@ -181,7 +181,7 @@ HERO
 ==========================*/
 .hero{
     width:100%;
-    min-height:55vh;
+    min-height:25vh;
     background:
         linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
         url("images/banner.jpg");
