@@ -1,7 +1,6 @@
-// ===============================
+
 // WEST BENGAL INFORMATION PORTAL
-// SCRIPT.JS - PART 1
-// ===============================
+
 
 // Dark Mode
 
@@ -227,11 +226,11 @@ copy.innerHTML=`© ${new Date().getFullYear()} West Bengal Information Portal. A
 }
 
 console.log("West Bengal Information Portal Loaded Successfully.");
-// Part 1
+
 
 ...
 
-// Part 2
+
 
 ...
 
