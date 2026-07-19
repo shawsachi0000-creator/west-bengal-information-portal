@@ -710,6 +710,23 @@ nav ul li a{
     background:#20c997;
     color:white;
 }
+/* Sabhi buttons/links par automatically apply hoga */
+.card a{
+    display:block;
+    padding:12px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    color:#fff;
+    background:linear-gradient(90deg,#FF9933,#FFFFFF,#138808);
+    color:#000;
+    transition:0.3s;
+}
+
+.card a:hover{
+    background:linear-gradient(90deg,#138808,#FFFFFF,#FF9933);
+    transform:scale(1.05);
+}
 
 .card a{
     display:block;
