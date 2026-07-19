@@ -1,0 +1,975 @@
+/*======================================
+  WEST BENGAL INFORMATION PORTAL
+  PREMIUM CSS - PART 1
+=======================================*/
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:#F5F5F5;
+    color:#111827;
+    overflow-x:hidden;
+
+}
+
+/* Premium Colors */
+
+:root{
+
+--primary:#1F2937;
+--secondary:#D4AF37;
+--white:#FFFFFF;
+--light:#F9FAFB;
+--text:#111827;
+--gray:#6B7280;
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#ECECEC;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#D4AF37;
+    border-radius:20px;
+}
+
+/*========================
+HEADER
+=========================*/
+
+header{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:75px;
+
+background:rgba(31,41,55,.95);
+
+backdrop-filter:blur(10px);
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:0 40px;
+
+z-index:999;
+
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}
+
+/* Logo */
+
+.logo{
+
+display:flex;
+align-items:center;
+gap:12px;
+
+}
+
+.logo i{
+
+font-size:32px;
+color:#D4AF37;
+
+}
+
+.logo h2{
+
+color:#fff;
+font-size:24px;
+font-weight:700;
+
+}
+
+/* Navbar */
+
+nav{
+
+display:flex;
+gap:28px;
+
+}
+
+nav a{
+
+text-decoration:none;
+
+color:#fff;
+
+font-weight:500;
+
+transition:.3s;
+
+position:relative;
+
+}
+
+nav a:hover{
+
+color:#D4AF37;
+
+}
+
+nav a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0%;
+
+height:2px;
+
+background:#D4AF37;
+
+transition:.3s;
+
+}
+
+nav a:hover::after{
+
+width:100%;
+
+}
+
+/* Menu Button */
+
+.menu-btn{
+
+display:none;
+
+font-size:28px;
+
+color:#fff;
+
+cursor:pointer;
+
+}
+
+/*==========================
+HERO
+==========================*/
+
+.hero{
+
+height:100vh;
+
+background:
+
+linear-gradient(rgba(0,0,0,.55),
+rgba(0,0,0,.55)),
+
+url("images/banner.jpg");
+
+background-size:cover;
+
+background-position:center;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
+}
+
+/* Hero Content */
+
+.overlay{
+
+max-width:900px;
+
+}
+
+.overlay h1{
+
+font-size:58px;
+
+color:#fff;
+
+font-weight:800;
+
+margin-bottom:20px;
+
+}
+
+.overlay p{
+
+color:#eee;
+
+font-size:20px;
+
+margin-bottom:35px;
+
+line-height:1.7;
+
+}
+
+/* Search */
+
+.search-box{
+
+display:flex;
+
+justify-content:center;
+
+margin-top:25px;
+
+flex-wrap:wrap;
+
+}
+
+.search-box input{
+
+width:420px;
+
+max-width:100%;
+
+padding:16px;
+
+border:none;
+
+outline:none;
+
+border-radius:50px 0 0 50px;
+
+font-size:16px;
+
+}
+
+.search-box button{
+
+padding:16px 30px;
+
+border:none;
+
+background:#D4AF37;
+
+color:#111827;
+
+font-size:16px;
+
+font-weight:700;
+
+cursor:pointer;
+
+border-radius:0 50px 50px 0;
+
+transition:.3s;
+
+}
+
+.search-box button:hover{
+
+background:#fff;
+
+}
+
+/* Section */
+
+section{
+
+padding:90px 8%;
+
+}
+
+.section-title{
+
+text-align:center;
+
+font-size:38px;
+
+color:#1F2937;
+
+margin-bottom:50px;
+
+font-weight:700;
+
+position:relative;
+
+}
+
+.section-title::after{
+
+content:"";
+
+display:block;
+
+width:90px;
+
+height:4px;
+
+background:#D4AF37;
+
+margin:15px auto;
+
+border-radius:20px;
+
+}
+/*======================================
+ PREMIUM CSS - PART 2
+ CARDS • BUTTONS • DISTRICTS
+======================================*/
+
+/* Card Container */
+
+.card-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    margin-top:30px;
+}
+
+/* Premium Card */
+
+.card{
+    background:#FFFFFF;
+    border-radius:20px;
+    padding:30px 25px;
+    text-align:center;
+    transition:.35s ease;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(212,175,55,.25);
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(212,175,55,.15),
+        transparent
+    );
+    transition:.6s;
+}
+
+.card:hover::before{
+    left:100%;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,.18);
+    border-color:#D4AF37;
+}
+
+/* Icons */
+
+.card i{
+    font-size:55px;
+    color:#D4AF37;
+    margin-bottom:18px;
+}
+
+/* Title */
+
+.card h3{
+    font-size:22px;
+    color:#1F2937;
+    margin-bottom:12px;
+}
+
+/* Text */
+
+.card p{
+    color:#6B7280;
+    line-height:1.7;
+}
+
+/* Links */
+
+.card a{
+    color:#1F2937;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.card a:hover{
+    color:#D4AF37;
+}
+
+/* Premium Button */
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:#D4AF37;
+    color:#1F2937;
+    text-decoration:none;
+    font-weight:700;
+    border-radius:50px;
+    transition:.35s;
+    box-shadow:0 10px 25px rgba(212,175,55,.35);
+}
+
+.btn:hover{
+    background:#1F2937;
+    color:#FFFFFF;
+    transform:translateY(-3px);
+}
+
+/* Statistics */
+
+.statistics{
+    background:#FFFFFF;
+}
+
+.statistics .card{
+    background:#F9FAFB;
+}
+
+/* District Cards */
+
+.districts{
+    background:#F5F5F5;
+}
+
+.districts .card{
+    font-size:18px;
+    font-weight:600;
+}
+
+/* Tourism */
+
+.tourism{
+    background:#FFFFFF;
+}
+
+/* Schemes */
+
+.schemes{
+    background:#F9FAFB;
+}
+
+/* Jobs */
+
+.jobs{
+    background:#FFFFFF;
+}
+
+/* Education */
+
+.education{
+    background:#F5F5F5;
+}
+
+/* Health */
+
+.health{
+    background:#FFFFFF;
+}
+
+/* Section Subtitle */
+
+.section-subtitle{
+    text-align:center;
+    color:#6B7280;
+    max-width:800px;
+    margin:0 auto 35px;
+    font-size:18px;
+    line-height:1.8;
+}
+/*======================================
+ PREMIUM CSS - PART 3
+ TOURISM • FORM • CONTACT • FOOTER
+======================================*/
+
+/* Tourism Gallery */
+
+.tourism .card{
+    padding:0;
+    overflow:hidden;
+}
+
+.tourism .card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    display:block;
+    transition:.5s;
+}
+
+.tourism .card:hover img{
+    transform:scale(1.08);
+}
+
+.tourism .card h3{
+    margin:18px 0 10px;
+    color:#1F2937;
+}
+
+.tourism .card p{
+    padding:0 20px 25px;
+    color:#6B7280;
+}
+
+/* Contact */
+
+.contact{
+    background:#F9FAFB;
+}
+
+.contact .card{
+    padding:35px;
+}
+
+.contact .card i{
+    font-size:50px;
+    color:#D4AF37;
+}
+
+/* Form */
+
+form{
+    max-width:700px;
+    margin:40px auto;
+}
+
+form input,
+form textarea{
+
+    width:100%;
+
+    padding:16px 18px;
+
+    margin-bottom:20px;
+
+    border:2px solid #E5E7EB;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+form input:focus,
+form textarea:focus{
+
+    border-color:#D4AF37;
+
+    box-shadow:0 0 10px rgba(212,175,55,.3);
+
+}
+
+form textarea{
+
+    resize:none;
+
+    min-height:180px;
+
+}
+
+form button{
+
+    width:100%;
+
+    border:none;
+
+    background:#D4AF37;
+
+    color:#1F2937;
+
+    padding:16px;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+form button:hover{
+
+    background:#1F2937;
+
+    color:#fff;
+
+}
+
+/* FAQ */
+
+details{
+
+    background:#fff;
+
+    margin-bottom:18px;
+
+    border-radius:12px;
+
+    padding:18px 20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+summary{
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    color:#1F2937;
+
+}
+
+details p{
+
+    margin-top:15px;
+
+    color:#6B7280;
+
+    line-height:1.8;
+
+}
+
+/* Footer */
+
+footer{
+
+    background:#1F2937;
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:50px 20px;
+
+}
+
+footer p{
+
+    margin:10px 0;
+
+    color:#E5E7EB;
+
+}
+
+.social-icons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin:25px 0;
+
+}
+
+.social-icons a{
+
+    width:55px;
+
+    height:55px
+  /*======================================
+ PREMIUM CSS - PART 4 (FINAL)
+ RESPONSIVE • ANIMATION • MOBILE
+======================================*/
+
+/* Animation */
+
+section{
+    opacity:0;
+    transform:translateY(50px);
+    transition:all .8s ease;
+}
+
+section.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* Image Hover */
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+.card img{
+    border-radius:15px 15px 0 0;
+}
+
+/* Smooth Hover */
+
+.card,
+.btn,
+nav a,
+.social-icons a{
+    transition:all .35s ease;
+}
+
+/* Selection */
+
+::selection{
+    background:#D4AF37;
+    color:#1F2937;
+}
+
+/* Dark Mode */
+
+body.dark{
+    background:#111827;
+    color:#fff;
+}
+
+body.dark section{
+    background:#111827;
+}
+
+body.dark .card{
+    background:#1F2937;
+    color:#fff;
+}
+
+body.dark .card h3,
+body.dark .section-title{
+    color:#fff;
+}
+
+body.dark .card p{
+    color:#ddd;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:992px){
+
+header{
+
+padding:0 20px;
+
+}
+
+.overlay h1{
+
+font-size:42px;
+
+}
+
+nav{
+
+gap:18px;
+
+}
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+.menu-btn{
+
+display:block;
+
+}
+
+nav{
+
+position:absolute;
+
+top:75px;
+
+left:0;
+
+width:100%;
+
+background:#1F2937;
+
+display:none;
+
+flex-direction:column;
+
+padding:20px;
+
+}
+
+nav.show{
+
+display:flex;
+
+}
+
+nav a{
+
+padding:14px 0;
+
+}
+
+.hero{
+
+height:85vh;
+
+}
+
+.overlay h1{
+
+font-size:32px;
+
+}
+
+.overlay p{
+
+font-size:16px;
+
+}
+
+.search-box{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.search-box input{
+
+width:100%;
+
+border-radius:12px;
+
+}
+
+.search-box button{
+
+width:100%;
+
+border-radius:12px;
+
+}
+
+.section-title{
+
+font-size:28px;
+
+}
+
+.card-container{
+
+grid-template-columns:1fr;
+
+}
+
+.card{
+
+padding:25px;
+
+}
+
+}
+
+/* Small Mobile */
+
+@media(max-width:480px){
+
+.logo h2{
+
+font-size:18px;
+
+}
+
+.logo i{
+
+font-size:24px;
+
+}
+
+.overlay h1{
+
+font-size:26px;
+
+}
+
+.overlay p{
+
+font-size:15px;
+
+}
+
+section{
+
+padding:70px 20px;
+
+}
+
+}
+
+/* Footer */
+
+footer{
+
+border-top:4px solid #D4AF37;
+
+}
+
+/* Premium Glow */
+
+.card:hover{
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.15),
+0 0 15px rgba(212,175,55,.25);
+
+}
+
+/* End */
+
+html{
+scroll-behavior:smooth;
+}
