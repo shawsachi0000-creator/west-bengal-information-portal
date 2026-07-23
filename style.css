@@ -557,7 +557,7 @@ nav.active{
     position:fixed;
     top:0;
     left:0;
-    width:100%;
+    width:25%;
     height:25vh;
     background:#08111f;
     display:flex;
