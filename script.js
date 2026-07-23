@@ -947,3 +947,852 @@ Version 1.0
 Status : Ready
 ========================================
 `);
+/* =========================
+   PART-11 : AI Chat Toggle
+========================= */
+
+const aiButton = document.querySelector(".ai-chat-button");
+const aiChatBox = document.querySelector(".ai-chat-box");
+
+if (aiButton && aiChatBox) {
+
+    aiButton.addEventListener("click", () => {
+
+        if (aiChatBox.style.display === "block") {
+            aiChatBox.style.display = "none";
+        } else {
+            aiChatBox.style.display = "block";
+        }
+
+    });
+
+}
+
+/* =========================
+   Welcome Message
+========================= */
+
+window.addEventListener("load", () => {
+    console.log("India Information Portal Version 2.0 Loaded Successfully");
+});
+/* =========================
+   PART-12 : Dark Mode & Smooth Scroll
+========================= */
+
+// Dark Mode Toggle
+
+const darkModeBtn = document.querySelector(".dark-mode-btn");
+
+if (darkModeBtn) {
+
+    darkModeBtn.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark-mode");
+
+        localStorage.setItem(
+            "darkMode",
+            document.body.classList.contains("dark-mode")
+        );
+
+    });
+
+}
+
+// Load Saved Theme
+
+if (localStorage.getItem("darkMode") === "true") {
+
+    document.body.classList.add("dark-mode");
+
+}
+
+// Smooth Scroll for Navigation Links
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+});
+/* =========================
+   PART-13 : Notifications, Search & Card Animation
+========================= */
+
+// Welcome Notification
+
+setTimeout(() => {
+
+    const message = document.createElement("div");
+
+    message.className = "notification";
+
+    message.innerText = "🇮🇳 Welcome to India Information Portal";
+
+    document.body.appendChild(message);
+
+    setTimeout(() => {
+
+        message.remove();
+
+    }, 4000);
+
+}, 1500);
+
+// Search Filter
+
+const searchInput = document.querySelector("#searchInput");
+
+if (searchInput) {
+
+    searchInput.addEventListener("keyup", function () {
+
+        const value = this.value.toLowerCase();
+
+        document.querySelectorAll(".card").forEach(card => {
+
+            const text = card.innerText.toLowerCase();
+
+            card.style.display = text.includes(value) ? "block" : "none";
+
+        });
+
+    });
+
+}
+
+// Card Animation on Scroll
+
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("fade-in");
+
+        }
+
+    });
+
+}, {
+    threshold: 0.2
+});
+
+cards.forEach(card => observer.observe(card));
+/* =========================
+   PART-14 : AI Chat, Voice Search & Text-to-Speech
+========================= */
+
+// AI Chat (Simple Demo)
+
+const aiInput = document.querySelector(".ai-footer input");
+const aiSend = document.querySelector(".ai-footer button");
+const aiBody = document.querySelector(".ai-body");
+
+if (aiInput && aiSend && aiBody) {
+
+    aiSend.addEventListener("click", sendMessage);
+
+    aiInput.addEventListener("keypress", function(e) {
+        if (e.key === "Enter") {
+            sendMessage();
+        }
+    });
+
+    function sendMessage() {
+
+        const text = aiInput.value.trim();
+
+        if (!text) return;
+
+        aiBody.innerHTML += `
+            <p><strong>You:</strong> ${text}</p>
+        `;
+
+        setTimeout(() => {
+
+            aiBody.innerHTML += `
+                <p><strong>AI:</strong> Thanks! AI integration will be added soon.</p>
+            `;
+
+            aiBody.scrollTop = aiBody.scrollHeight;
+
+        }, 600);
+
+        aiInput.value = "";
+
+    }
+
+}
+
+// Voice Search
+
+if ("webkitSpeechRecognition" in window) {
+
+    const recognition = new webkitSpeechRecognition();
+
+    recognition.lang = "en-IN";
+
+    const voiceBtn = document.querySelector(".fa-microphone");
+
+    if (voiceBtn) {
+
+        voiceBtn.addEventListener("click", () => {
+
+            recognition.start();
+
+        });
+
+    }
+
+    recognition.onresult = function(event) {
+
+        if (aiInput) {
+            aiInput.value = event.results[0][0].transcript;
+        }
+
+    };
+
+}
+
+// Text To Speech
+
+function speakText(text) {
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-IN";
+
+    window.speechSynthesis.speak(speech);
+
+}
+
+const speaker = document.querySelector(".fa-volume-high");
+
+if (speaker) {
+
+    speaker.addEventListener("click", () => {
+
+        speakText("Welcome to India Information Portal.");
+
+    });
+
+}
+/* =========================
+   PART-15 : USER FEATURES
+========================= */
+
+// Notification Button
+
+const notificationBtn = document.querySelector(".fa-bell");
+
+if (notificationBtn) {
+
+    notificationBtn.addEventListener("click", () => {
+
+        alert("🔔 You have no new notifications.");
+
+    });
+
+}
+
+// Bookmark Button
+
+document.querySelectorAll(".fa-bookmark").forEach(bookmark => {
+
+    bookmark.addEventListener("click", () => {
+
+        alert("❤️ Page added to bookmarks.");
+
+    });
+
+});
+
+// Login Demo
+
+document.querySelectorAll("button").forEach(button => {
+
+    if (button.textContent.trim() === "Login") {
+
+        button.addEventListener("click", () => {
+
+            alert("👤 Login feature will be connected soon.");
+
+        });
+
+    }
+
+});
+
+// Download Buttons
+
+document.querySelectorAll("button").forEach(button => {
+
+    if (
+        button.textContent.includes("Download") ||
+        button.textContent.includes("Generate CV")
+    ) {
+
+        button.addEventListener("click", () => {
+
+            alert("📄 Download will start after backend integration.");
+
+        });
+
+    }
+
+});
+
+// PWA Install (Basic)
+
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+
+    e.preventDefault();
+
+    deferredPrompt = e;
+
+});
+
+const installBtn = [...document.querySelectorAll("button")].find(btn =>
+    btn.textContent.trim() === "Install"
+);
+
+if (installBtn) {
+
+    installBtn.addEventListener("click", async () => {
+
+        if (!deferredPrompt) {
+
+            alert("App installation is not available right now.");
+
+            return;
+
+        }
+
+        deferredPrompt.prompt();
+
+        await deferredPrompt.userChoice;
+
+        deferredPrompt = null;
+
+    });
+
+}
+
+/* =========================
+   PART-16 : ADVANCED FEATURES
+========================= */
+
+// Scroll Progress Bar
+
+const progressBar = document.createElement("div");
+progressBar.id = "scroll-progress";
+
+progressBar.style.cssText = `
+position:fixed;
+top:0;
+left:0;
+height:4px;
+width:0%;
+background:#0d6efd;
+z-index:99999;
+`;
+
+document.body.appendChild(progressBar);
+
+window.addEventListener("scroll", () => {
+
+    const totalHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const progress =
+        (window.pageYOffset / totalHeight) * 100;
+
+    progressBar.style.width = progress + "%";
+
+});
+
+// Language Switcher (Demo)
+
+const languageBtn = document.querySelector(".fa-language");
+
+if (languageBtn) {
+
+    languageBtn.addEventListener("click", () => {
+
+        alert("🌐 Hindi, English and Bengali support will be available soon.");
+
+    });
+
+}
+
+// Loading Animation
+
+window.addEventListener("load", () => {
+
+    document.body.classList.remove("loading");
+
+});
+
+// Advanced Search
+
+const searchBox = document.querySelector("#searchInput");
+
+if (searchBox) {
+
+    searchBox.addEventListener("input", function () {
+
+        const keyword = this.value.toLowerCase();
+
+        document.querySelectorAll(".card").forEach(card => {
+
+            const text = card.textContent.toLowerCase();
+
+            if (text.includes(keyword)) {
+
+                card.style.display = "";
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+}
+
+// Keyboard Shortcut (Ctrl + K)
+
+document.addEventListener("keydown", function(e){
+
+    if(e.ctrlKey && e.key.toLowerCase()==="k"){
+
+        e.preventDefault();
+
+        if(searchBox){
+
+            searchBox.focus();
+
+        }
+
+    }
+
+});
+/* =========================
+   PART-17 : THEME, AI & SETTINGS
+========================= */
+
+// Save Theme Automatically
+
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+}
+
+// Save Theme Whenever It Changes
+
+function saveTheme() {
+
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+
+}
+
+document.addEventListener("click", (e) => {
+
+    if (e.target.classList.contains("dark-mode-btn")) {
+        setTimeout(saveTheme, 100);
+    }
+
+});
+
+// AI Auto Reply (Demo)
+
+const aiReplies = [
+    "Hello! How can I help you?",
+    "Please visit the Government Services section.",
+    "You can search jobs from the Jobs page.",
+    "Thank you for using India Information Portal.",
+    "Have a great day!"
+];
+
+function getAIReply() {
+    return aiReplies[Math.floor(Math.random() * aiReplies.length)];
+}
+
+if (typeof aiBody !== "undefined" && aiBody) {
+
+    aiSend?.addEventListener("click", () => {
+
+        setTimeout(() => {
+
+            aiBody.innerHTML += `
+                <p><strong>AI:</strong> ${getAIReply()}</p>
+            `;
+
+            aiBody.scrollTop = aiBody.scrollHeight;
+
+        }, 700);
+
+    });
+
+}
+
+// Save User Name
+
+const profileName = document.querySelector('input[placeholder="Full Name"]');
+
+if (profileName) {
+
+    profileName.value = localStorage.getItem("userName") || "";
+
+    profileName.addEventListener("input", () => {
+
+        localStorage.setItem("userName", profileName.value);
+
+    });
+
+}
+
+// Welcome User
+
+window.addEventListener("load", () => {
+
+    const name = localStorage.getItem("userName");
+
+    if (name) {
+        console.log("Welcome back, " + name + "!");
+    }
+
+});
+/* =========================
+   PART-18 : TOAST, VISITOR, SHARE & RATING
+========================= */
+
+// Toast Notification
+
+function showToast(message) {
+
+    const toast = document.createElement("div");
+
+    toast.className = "toast-message";
+
+    toast.innerText = message;
+
+    toast.style.cssText = `
+        position:fixed;
+        bottom:20px;
+        right:20px;
+        background:#0d6efd;
+        color:#fff;
+        padding:15px 20px;
+        border-radius:10px;
+        z-index:99999;
+        box-shadow:0 10px 25px rgba(0,0,0,.2);
+    `;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+
+        toast.remove();
+
+    },3000);
+
+}
+
+// Visitor Counter
+
+let visitors = Number(localStorage.getItem("visitorCount")) || 0;
+
+visitors++;
+
+localStorage.setItem("visitorCount", visitors);
+
+console.log("Visitor Count:", visitors);
+
+// Share Website
+
+function shareWebsite(){
+
+    if(navigator.share){
+
+        navigator.share({
+            title:"India Information Portal",
+            text:"Check out this awesome India Information Portal!",
+            url:window.location.href
+        });
+
+    }else{
+
+        showToast("Sharing is not supported on this browser.");
+
+    }
+
+}
+
+// Share Button
+
+document.querySelectorAll("button").forEach(btn=>{
+
+    if(btn.textContent.trim()==="Share"){
+
+        btn.addEventListener("click",shareWebsite);
+
+    }
+
+});
+
+// Like Button
+
+document.querySelectorAll("button").forEach(btn=>{
+
+    if(btn.textContent.trim()==="Like"){
+
+        btn.addEventListener("click",()=>{
+
+            showToast("❤️ Thank you for liking!");
+
+        });
+
+    }
+
+});
+
+// Rating Demo
+
+document.querySelectorAll(".rating-star").forEach(star=>{
+
+    star.addEventListener("click",()=>{
+
+        const value=star.dataset.rating;
+
+        localStorage.setItem("websiteRating",value);
+
+        showToast("⭐ Thanks for rating us "+value+"/5");
+
+    });
+
+});
+
+// Auto Save Settings
+
+window.addEventListener("beforeunload",()=>{
+
+    localStorage.setItem("lastVisit",new Date().toLocaleString());
+
+});
+/* =========================
+   PART-19 : AUTO FEATURES
+========================= */
+
+// Auto Dark Mode (Based on System Theme)
+
+if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.body.classList.add("dark-mode");
+}
+
+// Weather Placeholder
+
+function loadWeather() {
+
+    console.log("Weather API will be connected here.");
+
+}
+
+loadWeather();
+
+// News Placeholder
+
+function loadNews() {
+
+    console.log("News API will be connected here.");
+
+}
+
+loadNews();
+
+// AI Search (Demo)
+
+const aiSearch = document.querySelector("#searchInput");
+
+if (aiSearch) {
+
+    aiSearch.addEventListener("change", () => {
+
+        console.log("Searching:", aiSearch.value);
+
+    });
+
+}
+
+// PWA Online / Offline Status
+
+window.addEventListener("online", () => {
+
+    showToast("🟢 Internet Connected");
+
+});
+
+window.addEventListener("offline", () => {
+
+    showToast("🔴 Internet Disconnected");
+
+});
+
+// Auto Save Scroll Position
+
+window.addEventListener("beforeunload", () => {
+
+    localStorage.setItem("scrollPosition", window.scrollY);
+
+});
+
+window.addEventListener("load", () => {
+
+    const saved = localStorage.getItem("scrollPosition");
+
+    if (saved) {
+
+        window.scrollTo(0, Number(saved));
+
+    }
+
+});
+
+// Back to Top Button
+
+const topBtn = document.querySelector(".scroll-top");
+
+if (topBtn) {
+
+    topBtn.addEventListener("click", () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    });
+
+}
+/* =========================
+   PART-20 : FINAL INITIALIZATION
+========================= */
+
+// Safe Initialization
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("🇮🇳 India Information Portal v2.0 Started");
+
+    showToast("✅ Website Loaded Successfully");
+
+});
+
+// Global Error Handler
+
+window.addEventListener("error", (event) => {
+
+    console.error("Error:", event.message);
+
+});
+
+// Lazy Loading Images
+
+document.querySelectorAll("img").forEach(img => {
+
+    img.loading = "lazy";
+
+});
+
+// Network Status
+
+function updateNetworkStatus() {
+
+    if (navigator.onLine) {
+
+        console.log("🟢 Online");
+
+    } else {
+
+        console.log("🔴 Offline");
+
+    }
+
+}
+
+window.addEventListener("online", updateNetworkStatus);
+window.addEventListener("offline", updateNetworkStatus);
+
+updateNetworkStatus();
+
+// Performance Timer
+
+window.addEventListener("load", () => {
+
+    const loadTime = performance.now().toFixed(0);
+
+    console.log("⚡ Page Loaded in " + loadTime + " ms");
+
+});
+
+// Footer Year
+
+const footerYear = document.querySelector(".current-year");
+
+if (footerYear) {
+
+    footerYear.textContent = new Date().getFullYear();
+
+}
+
+// Keyboard Shortcut (Alt + H)
+
+document.addEventListener("keydown", (e) => {
+
+    if (e.altKey && e.key.toLowerCase() === "h") {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+
+});
+
+// Final Message
+
+console.log("🚀 India Information Portal Version 2.0 Ready");
