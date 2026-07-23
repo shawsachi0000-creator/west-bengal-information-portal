@@ -2264,3 +2264,20 @@ body{
     text-align:center;
     margin:15px 0;
 }
+       
+/* ===== Premium Top Banner ===== */
+
+.top-banner{
+    width:100%;
+    max-width:1200px;
+    margin:20px auto;
+    padding:0 15px;
+}
+
+.top-banner img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
