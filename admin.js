@@ -125,3 +125,66 @@ window.onload=showNews;
     background:#dc2626;
     color:#fff;
     }
+// ===========================
+// PART-9 : SCHEMES MANAGEMENT
+// ===========================
+
+let schemes = JSON.parse(localStorage.getItem("schemes")) || [];
+
+function saveSchemes(){
+    localStorage.setItem("schemes", JSON.stringify(schemes));
+}
+
+function showSchemes(){
+
+    const schemeList = document.getElementById("schemeList");
+
+    if(!schemeList) return;
+
+    schemeList.innerHTML = "";
+
+    schemes.forEach((item,index)=>{
+
+        schemeList.innerHTML += `
+        <div class="card" style="margin-top:20px;">
+            <h3>${item.title}</h3>
+            <p>${item.description}</p>
+
+            <button onclick="deleteScheme(${index})">Delete</button>
+        </div>
+        `;
+
+    });
+
+}
+
+function addScheme(){
+
+    const title = document.getElementById("schemeTitle").value;
+    const description = document.getElementById("schemeDescription").value;
+
+    if(title==="" || description===""){
+        alert("Fill all fields");
+        return;
+    }
+
+    schemes.push({title,description});
+
+    saveSchemes();
+    showSchemes();
+
+    document.getElementById("schemeTitle").value="";
+    document.getElementById("schemeDescription").value="";
+}
+
+function deleteScheme(index){
+
+    schemes.splice(index,1);
+
+    saveSchemes();
+
+    showSchemes();
+
+}
+
+window.addEventListener("load", showSchemes);
