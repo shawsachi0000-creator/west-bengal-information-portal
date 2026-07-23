@@ -101,30 +101,7 @@ function editNews(index){
 
     showNews();
 
-}
 
-window.onload=showNews;
-.news-form button{
-    margin-right:10px;
-}
-
-#newsList button{
-    margin:8px 5px 0 0;
-    padding:8px 15px;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-}
-
-#newsList button:first-child{
-    background:#2563eb;
-    color:#fff;
-}
-
-#newsList button:last-child{
-    background:#dc2626;
-    color:#fff;
-    }
 // ===========================
 // PART-9 : SCHEMES MANAGEMENT
 // ===========================
