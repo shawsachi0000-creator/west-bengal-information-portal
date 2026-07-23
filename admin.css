@@ -73,3 +73,99 @@ body{
     margin-top:15px;
     color:red;
 }
+/* ===========================
+   PART-5 : DASHBOARD STYLE
+=========================== */
+
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:260px;
+    background:#0f172a;
+    color:#fff;
+    padding:25px;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    padding:15px;
+    margin:10px 0;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.sidebar ul li:hover{
+    background:#2563eb;
+}
+
+.sidebar ul li i{
+    margin-right:10px;
+}
+
+.content{
+    flex:1;
+    padding:30px;
+    background:#f4f7fb;
+}
+
+.content h1{
+    margin-bottom:30px;
+    color:#222;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h2{
+    font-size:36px;
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#666;
+}
+
+@media(max-width:768px){
+
+    .dashboard{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+    }
+
+    .content{
+        padding:20px;
+    }
+
+}
