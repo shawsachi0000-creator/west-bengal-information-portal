@@ -193,3 +193,32 @@ body{
     border-radius:8px;
     cursor:pointer;
 }
+/* ===========================
+   PART-9 : SCHEME MANAGEMENT
+=========================== */
+
+.scheme-form{
+    margin-top:25px;
+}
+
+.scheme-form input,
+.scheme-form textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.scheme-form textarea{
+    height:120px;
+}
+
+.scheme-form button{
+    padding:12px 20px;
+    background:#f59e0b;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
