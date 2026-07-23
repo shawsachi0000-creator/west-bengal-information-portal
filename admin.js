@@ -166,3 +166,74 @@ function deleteScheme(index){
 }
 
 window.addEventListener("load", showSchemes);
+// ===========================
+// PART-8 : JOBS MANAGEMENT
+// ===========================
+
+let jobs = JSON.parse(localStorage.getItem("jobs")) || [];
+
+function saveJobs() {
+    localStorage.setItem("jobs", JSON.stringify(jobs));
+}
+
+function showJobs() {
+
+    const jobList = document.getElementById("jobList");
+
+    if (!jobList) return;
+
+    jobList.innerHTML = "";
+
+    jobs.forEach((job, index) => {
+
+        jobList.innerHTML += `
+        <div class="card" style="margin-top:20px;">
+            <h3>${job.title}</h3>
+            <p>${job.company}</p>
+            <p>${job.location}</p>
+
+            <button onclick="deleteJob(${index})">Delete</button>
+        </div>
+        `;
+
+    });
+
+}
+
+function addJob() {
+
+    const title = document.getElementById("jobTitle").value;
+    const company = document.getElementById("companyName").value;
+    const location = document.getElementById("jobLocation").value;
+
+    if (title === "" || company === "" || location === "") {
+        alert("Fill all fields");
+        return;
+    }
+
+    jobs.push({
+        title,
+        company,
+        location
+    });
+
+    saveJobs();
+    showJobs();
+
+    document.getElementById("jobTitle").value = "";
+    document.getElementById("companyName").value = "";
+    document.getElementById("jobLocation").value = "";
+
+}
+
+function deleteJob(index) {
+
+    jobs.splice(index, 1);
+
+    saveJobs();
+
+    showJobs();
+
+}
+
+window.addEventListener("load", showJobs);
