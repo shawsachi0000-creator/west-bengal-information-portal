@@ -100,7 +100,8 @@ function editNews(index){
     saveNews();
 
     showNews();
-
+    }
+window.addEventListener("load", showNews);
 
 // ===========================
 // PART-9 : SCHEMES MANAGEMENT
