@@ -22,3 +22,85 @@ function login(){
     }
 
 }
+// ===========================
+// PART-7 : SAVE, EDIT & DELETE
+// ===========================
+
+let news = JSON.parse(localStorage.getItem("news")) || [];
+
+function saveNews(){
+    localStorage.setItem("news", JSON.stringify(news));
+}
+
+function showNews(){
+
+    const newsList = document.getElementById("newsList");
+
+    if(!newsList) return;
+
+    newsList.innerHTML="";
+
+    news.forEach((item,index)=>{
+
+        newsList.innerHTML += `
+        <div class="card" style="margin-top:20px;">
+            <h3>${item.title}</h3>
+            <p>${item.description}</p>
+
+            <button onclick="editNews(${index})">Edit</button>
+
+            <button onclick="deleteNews(${index})">Delete</button>
+        </div>
+        `;
+
+    });
+
+}
+
+function addNews(){
+
+    const title=document.getElementById("newsTitle").value;
+    const description=document.getElementById("newsDescription").value;
+
+    if(title==="" || description===""){
+        alert("Fill all fields");
+        return;
+    }
+
+    news.push({
+        title,
+        description
+    });
+
+    saveNews();
+    showNews();
+
+    document.getElementById("newsTitle").value="";
+    document.getElementById("newsDescription").value="";
+}
+
+function deleteNews(index){
+
+    news.splice(index,1);
+
+    saveNews();
+
+    showNews();
+
+}
+
+function editNews(index){
+
+    document.getElementById("newsTitle").value=news[index].title;
+
+    document.getElementById("newsDescription").value=news[index].description;
+
+    news.splice(index,1);
+
+    saveNews();
+
+    showNews();
+
+}
+
+window.onload=showNews;
