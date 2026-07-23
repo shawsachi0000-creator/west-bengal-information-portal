@@ -169,3 +169,27 @@ body{
     }
 
 }
+/* ===========================
+   PART-8 : JOB MANAGEMENT
+=========================== */
+
+.job-form{
+    margin-top:25px;
+}
+
+.job-form input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.job-form button{
+    padding:12px 20px;
+    background:#198754;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
