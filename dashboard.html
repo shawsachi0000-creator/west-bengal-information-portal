@@ -70,6 +70,23 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 </div>
 
 <div id="newsList"></div>
+<hr style="margin:40px 0;">
+
+<h2>💼 Jobs Management</h2>
+
+<div class="job-form">
+
+    <input type="text" id="jobTitle" placeholder="Job Title">
+
+    <input type="text" id="companyName" placeholder="Company Name">
+
+    <input type="text" id="jobLocation" placeholder="Location">
+
+    <button onclick="addJob()">Add Job</button>
+
+</div>
+
+<div id="jobList"></div>
 
     </main>
 
@@ -77,3 +94,71 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 </body>
 </html>
+// ===========================
+// PART-8 : JOBS MANAGEMENT
+// ===========================
+
+let jobs = JSON.parse(localStorage.getItem("jobs")) || [];
+
+function saveJobs(){
+localStorage.setItem("jobs", JSON.stringify(jobs));
+}
+
+function showJobs(){
+
+    const jobList = document.getElementById("jobList");
+
+    if(!jobList) return;
+
+    jobList.innerHTML="";
+
+    jobs.forEach((job,index)=>{
+
+        jobList.innerHTML += `
+        <div class="card" style="margin-top:20px;">
+            <h3>${job.title}</h3>
+            <p>${job.company}</p>
+            <p>${job.location}</p>
+
+            <button onclick="deleteJob(${index})">Delete</button>
+        </div>
+        `;
+
+    });
+
+}
+
+function addJob(){
+
+    const title=document.getElementById("jobTitle").value;
+    const company=document.getElementById("companyName").value;
+    const location=document.getElementById("jobLocation").value;
+
+    if(title===""||company===""||location===""){
+        alert("Fill all fields");
+        return;
+    }
+
+    jobs.push({title,company,location});
+
+    saveJobs();
+
+    showJobs();
+
+    document.getElementById("jobTitle").value="";
+    document.getElementById("companyName").value="";
+    document.getElementById("jobLocation").value="";
+
+}
+
+function deleteJob(index){
+
+    jobs.splice(index,1);
+
+    saveJobs();
+
+    showJobs();
+
+}
+
+window.addEventListener("load",showJobs);
