@@ -1775,3 +1775,24 @@ document.addEventListener("keydown", (e) => {
 // Final Message
 
 console.log("🚀 India Information Portal Version 2.0 Ready");
+/* ===========================
+   Make All Cards Clickable
+=========================== */
+
+document.querySelectorAll(".tourism .card").forEach(card => {
+    card.onclick = () => {
+        window.open("https://www.incredibleindia.gov.in/", "_blank");
+    };
+});
+
+document.querySelectorAll(".career .card").forEach(card => {
+    card.onclick = () => {
+        window.open("https://www.ncs.gov.in/", "_blank");
+    };
+});
+
+document.querySelectorAll(".contact .card").forEach(card => {
+    card.onclick = () => {
+        window.location.href = "mailto:shawsachi0000@gmail.com";
+    };
+});
